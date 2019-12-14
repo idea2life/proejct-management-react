@@ -1,0 +1,4 @@
+export const reduxConstant = {
+  REQUEST_SIGNUP: 'REQUEST_SIGNUP',
+  REQUEST_LOGIN: 'REQUEST_LOGIN'
+}
