@@ -145,8 +145,8 @@ export default class Home extends React.Component {
     rightComponent = () => {
         return(
             <div className = "rightWrapper">
-                <Typography>BILLED ANNUALLY</Typography>
-                <p style = {{ fontSize: 61, fontWeight: 'bold', margin: 0}}>{ this.state.planState === 'Starter' ? '$172' : '$410'}/<span style = {{fontSize: 40}}>mo</span></p>
+                <Typography>BILLED { this.state.billedState === 'Annual' ? 'ANNUALLY' : 'MONTHLY' }</Typography>
+                <p style = {{ fontSize: 61, fontWeight: 'bold', margin: 0 }}>{ this.state.planState === 'Starter' ? '$172' : '$410'}<span style = {{fontSize: 40}}>/mo</span></p>
                 <Typography>({ this.state.planState === 'Enterprise' ? 36 : 12} month contract term)</Typography>
                 <div className = "btnWrapper">
                     <Button className = "buyBtn">BUY NOW</Button>
@@ -195,9 +195,22 @@ export default class Home extends React.Component {
                             <div style = {{ width: '100%' }}>
                                 <p className = "dis-text">Users <span className = "smallText">1 included</span></p>
                                 <IOSSlider aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on" max={1} />
-                                <p className = "dis-text">Accounts <span className = "smallText">10 included</span></p>
+                                <div className = "part-container">
+                                    <p className = "dis-text">Accounts <span className = "smallText">10 included</span></p>
+                                    <div>
+                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$150</span>
+                                        <span className="small-black">per month</span>
+                                    </div>
+                                </div>
                                 <IOSSlider aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on" max={50} min={10} />
                             </div>
+                        }
+                        {
+                            this.state.planState !== 'Enterprise' &&
+                            <Typography style = {{ color: '#555656', fontSize: 11 }}>
+                                We offer special pricing discounts for associations and groups. <span style = {{ color: '#259fc4', fontWeight: 'bold' }}>Find out more. </span>
+                                Enter your group discount code here:
+                            </Typography>
                         }
                         
 

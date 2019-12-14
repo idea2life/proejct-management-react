@@ -79,7 +79,6 @@
 }
 
 .btnWrapper {
-
     display: flex;
     flex-direction: column;
     padding: 50px 0;
@@ -90,4 +89,24 @@
 }
 .selectedIcon {
     color: #ffffff!important;
+}
+
+.part-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    .small-black {
+        font-size: 9px;
+        letter-spacing: 0px;
+        line-height: 10px;
+        color: #595959;
+    }
+    .small-wrapper {
+        border-radius: 6px;
+        background-color: #e3ebee;
+        padding: 5px;
+        margin-right: 5px;
+    }
 }
