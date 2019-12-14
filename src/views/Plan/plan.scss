@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    height: 100vh;
+}
+.title {
+    font-size: 43px !important;
+    letter-spacing: 2px !important;
+    line-height: 44px !important;
+    color: #000000 !important;
+    font-family: "Gadugi" !important;
+    font-weight: bold !important;
+    padding-bottom: 50px;
+}
+
+.planBtn {
+    background-color: #e3ebee!important;
+    font-size: 13px;
+    width: 30%;
+    color: #555656;
+    font-family: "Gadugi";
+    .btnContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+            font-family: 'Gadugi'!important;
+        }
+    }
+}
+
+.planSelectedBtn {
+    background-color: #259fc4!important;
+    color: #ffffff!important;
+    .smallText {
+        color: #ffffff!important;
+    }
+}
+
+.rightWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #259fc4;
+    color: #ffffff;
+    padding: 40px;
+}
+
+.smallText {
+    font-size: 8px!important;
+    color: gray!important;
+}
+
+.dis-text {
+    font-size: 17px!important;
+    letter-spacing: 0px!important;
+    line-height: 17px!important;
+    color: #259fc4!important;
+    font-family: "Gadugi"!important;
+    font-weight: bold!important;
+}
+
+.buyBtn {
+    background-color: #ffffff!important;
+    color: #259fc4!important;
+    font-weight: 700!important;
+}
+
+.talkBtn {
+    color: #ffffff!important;
+    background-color: #259fc4!important;
+    border-color: #ffffff!important;
+    margin-top: 20px!important;
+}
+
+.btnWrapper {
+
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+}
+
+.btnIcon {
+    color: #259fc4!important;
+}
+.selectedIcon {
+    color: #ffffff!important;
+}
