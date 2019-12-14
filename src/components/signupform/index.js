@@ -193,7 +193,7 @@ export default function SignInForm() {
           <Grid item style = {{ marginTop: 20 }}>
             <FormControlLabel
               control={<Checkbox value="agree" style={{ color: mainColor }} />}
-              label="I agree with terms and conditions"
+              label={<Typography style={{ fontFamily: 'Source Sans Pro' }}>I agree with terms and conditions</Typography>}
             />
           </Grid>
           <Grid container justify="center" alignItems="center">

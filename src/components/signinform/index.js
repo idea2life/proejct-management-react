@@ -134,7 +134,7 @@ export default function SignInForm() {
             <Grid item>
               <FormControlLabel
                 control={<Checkbox value="remember" style={{ color: mainColor }} />}
-                label="Remember me"
+                label={<Typography style={{ fontFamily: 'Source Sans Pro' }}>Remember me</Typography>}
               />
             </Grid>
             <Grid item>
