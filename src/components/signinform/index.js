@@ -63,10 +63,15 @@ const useStyles = makeStyles(theme => ({
   logo: {
     color: mainColor,
     fontWeight: 700,
+    fontSize: 18,
+    letterSpacing: 4,
+    lineHeight: '11px',
     fontFamily: 'Source Sans Pro'
   },
   title: {
     color: '#4d4f5c',
+    fontSize: 9,
+    lineHeight: '7px',
     fontWeight: 400,
     fontFamily: 'Source Sans Pro',
     padding: 10
@@ -83,8 +88,8 @@ const useStyles = makeStyles(theme => ({
   },
   signupBtn: {
     margin: theme.spacing(3, 0, 2),
-    color: '#43425d',
-    borderColor: '#43425d'
+    color: '#4d4f5c',
+    borderColor: '#4d4f5c'
   }
 }));
 
@@ -132,7 +137,7 @@ export default function SignInForm() {
             </Grid>
             <Grid item>
               <Link href="#" variant="body2" style={{ color: mainColor }}>
-                Forgot password?
+                Forgot Password
               </Link>
             </Grid>
           </Grid>
@@ -156,7 +161,7 @@ export default function SignInForm() {
                 color="primary"
                 className={classes.signupBtn}
               >
-                <Link to="/signup" style = {{ color: mainColor, borderColor: mainColor, textDecoration: 'none' }} >signup</Link>
+                <Link to="/signup" style = {{ color: '#4d4f5c', borderColor: '#4d4f5c', textDecoration: 'none' }} >signup</Link>
               </Button>
             </Grid>
           </Grid>

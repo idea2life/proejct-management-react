@@ -68,10 +68,15 @@ const useStyles = makeStyles(theme => ({
   logo: {
     color: mainColor,
     fontWeight: 700,
+    fontSize: 18,
+    letterSpacing: 4,
+    lineHeight: '11px',
     fontFamily: 'Source Sans Pro'
   },
   title: {
     color: '#4d4f5c',
+    fontSize: 9,
+    lineHeight: '7px',
     fontWeight: 400,
     fontFamily: 'Source Sans Pro',
     padding: 10
@@ -100,7 +105,7 @@ export default function SignInForm() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography className={classes.logo} component="h1" variant="h4">
+        <Typography className={classes.logo}>
           COMPANY
         </Typography>
         <Typography className={classes.title}>
@@ -115,7 +120,7 @@ export default function SignInForm() {
                 required
                 fullWidth
                 id="firstname"
-                label="First Name"
+                label="First name"
                 name="firstname"
                 autoFocus
               />
@@ -127,7 +132,7 @@ export default function SignInForm() {
                 required
                 fullWidth
                 id="lastname"
-                label="Last Name"
+                label="Last name"
                 name="lastname"
               />
             </Grid>
@@ -138,7 +143,7 @@ export default function SignInForm() {
             required
             fullWidth
             id="username"
-            label="User Name"
+            label="Username"
             name="username"
           />
           <CssTextField
@@ -172,7 +177,7 @@ export default function SignInForm() {
             autoComplete="current-password"
           />
 
-          <FormControl fullWidth>
+          <FormControl fullWidth style = {{ marginTop: 15 }}>
             <InputLabel id="demo-simple-select-label" style={{color: mainColor}}>Select Account Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
