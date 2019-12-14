@@ -32,6 +32,7 @@ const CssTextField = withStyles({
   root: {
     '& label': {
       color: mainColor,
+      fontFamily: 'Source Sans Pro',
     },
     '& label.Mui-focused': {
       color: mainColor,
@@ -57,6 +58,7 @@ const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
       backgroundColor: theme.palette.common.white,
+      fontFamily: 'Source Sans Pro',
     },
   },
   paper: {
@@ -178,7 +180,7 @@ export default function SignInForm() {
           />
 
           <FormControl fullWidth style = {{ marginTop: 15 }}>
-            <InputLabel id="demo-simple-select-label" style={{color: mainColor}}>Select Account Type</InputLabel>
+            <InputLabel id="demo-simple-select-label" style={{color: mainColor, fontFamily: 'Source Sans Pro'}}>Select Account Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
