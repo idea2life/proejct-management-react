@@ -171,7 +171,7 @@ export default function SignInForm() {
 
           <FormControl variant="outlined" fullWidth>
             <InputLabel htmlFor="outlined-lang-simple">
-              Language
+              Select Account Type
             </InputLabel>
             <Select
               input={<OutlinedInput name="language" id="outlined-lang-simple" />}
@@ -180,21 +180,13 @@ export default function SignInForm() {
               <MenuItem value={1}>type2</MenuItem>
             </Select>
           </FormControl>
-          
-          <Grid container justify="space-between" alignItems="center">
-            <Grid item>
-              <FormControlLabel
-                control={<Checkbox value="remember" style={{ color: mainColor }} />}
-                label="Remember me"
-              />
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2" style={{ color: mainColor }}>
-                Forgot password?
-              </Link>
-            </Grid>
+          <Grid item>
+            <FormControlLabel
+              control={<Checkbox value="agree" style={{ color: mainColor }} />}
+              label="I agree with terms and conditions"
+            />
           </Grid>
-          <Grid container justify="space-between" alignItems="center">
+          <Grid container justify="center" alignItems="center">
             <Grid item xs = {5} spacing = {5}>
               <Button
                 type="button"
@@ -203,22 +195,15 @@ export default function SignInForm() {
                 color="primary"
                 className={classes.loginBtn}
               >
-                LogIn
-              </Button>
-            </Grid>
-            <Grid item xs = {5} spacing = {5}>
-              <Button
-                type="button"
-                fullWidth
-                variant="outlined"
-                color="primary"
-                className={classes.signupBtn}
-              >
-                <Link to="/signup" style = {{ color: mainColor, borderColor: mainColor, textDecoration: 'none' }} >signup</Link>
+                Signup
               </Button>
             </Grid>
           </Grid>
-          
+          <Grid container justify="center" alignItems="center">
+            <Link href="#" variant="body2" style={{ color: mainColor }}>
+              Already have an account?Sign in
+            </Link>
+          </Grid>
         </form>
       </div>
       <Box mt={8}>
