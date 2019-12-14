@@ -169,15 +169,14 @@ export default function SignInForm() {
             autoComplete="current-password"
           />
 
-          <FormControl variant="outlined" fullWidth>
-            <InputLabel htmlFor="outlined-lang-simple">
-              Select Account Type
-            </InputLabel>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Select Account Type</InputLabel>
             <Select
-              input={<OutlinedInput name="language" id="outlined-lang-simple" />}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
             >
-              <MenuItem value={0}>type1</MenuItem>
-              <MenuItem value={1}>type2</MenuItem>
+              <MenuItem value={10}>type1</MenuItem>
+              <MenuItem value={20}>type2</MenuItem>
             </Select>
           </FormControl>
           <Grid item>
@@ -200,7 +199,7 @@ export default function SignInForm() {
             </Grid>
           </Grid>
           <Grid container justify="center" alignItems="center">
-            <Link href="#" variant="body2" style={{ color: mainColor }}>
+            <Link to="/login" variant="body2" style={{ color: mainColor }}>
               Already have an account?Sign in
             </Link>
           </Grid>
