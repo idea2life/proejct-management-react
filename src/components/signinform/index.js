@@ -25,6 +25,9 @@ function Copyright() {
 
 const CssTextField = withStyles({
   root: {
+    '& label': {
+      color: mainColor,
+    },
     '& label.Mui-focused': {
       color: mainColor,
     },

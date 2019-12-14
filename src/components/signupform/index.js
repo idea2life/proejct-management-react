@@ -30,6 +30,9 @@ function Copyright() {
 
 const CssTextField = withStyles({
   root: {
+    '& label': {
+      color: mainColor,
+    },
     '& label.Mui-focused': {
       color: mainColor,
     },
@@ -170,7 +173,7 @@ export default function SignInForm() {
           />
 
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Select Account Type</InputLabel>
+            <InputLabel id="demo-simple-select-label" style={{color: mainColor}}>Select Account Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -179,7 +182,8 @@ export default function SignInForm() {
               <MenuItem value={20}>type2</MenuItem>
             </Select>
           </FormControl>
-          <Grid item>
+
+          <Grid item style = {{ marginTop: 20 }}>
             <FormControlLabel
               control={<Checkbox value="agree" style={{ color: mainColor }} />}
               label="I agree with terms and conditions"
@@ -198,7 +202,7 @@ export default function SignInForm() {
               </Button>
             </Grid>
           </Grid>
-          <Grid container justify="center" alignItems="center">
+          <Grid container justify="center" alignItems="center" style = {{ marginTop: 20 }}>
             <Link to="/login" variant="body2" style={{ color: mainColor }}>
               Already have an account?Sign in
             </Link>
