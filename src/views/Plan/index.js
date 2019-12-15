@@ -129,7 +129,7 @@ export default class Home extends React.Component {
                         justify="space-around"
                         alignItems="center"
                         >
-                        <Grid container item md={7} style={{height: '100%', padding: 40}}>
+                        <Grid container item md={7} style={{height: '100%', padding: '0 40px'}}>
                             <Grid container item xs={12} justify="space-between" alignItems="center">
                                 <Typography className = "dis-text">plans</Typography>
                                 <div style = {{ display : 'flex' }}>
@@ -198,12 +198,12 @@ export default class Home extends React.Component {
                                                 label="price"
                                                 variant="outlined"
                                                 size = "small"
-                                                style = {{ height: 40 }}
+                                                style = {{ height: 50 }}
                                             />
                                         </div>
                                         <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                             <div style = {{ textAlign: 'right' }}>
-                                                <p style = {{ color: 'cadetblue' }}>Don't have a code and would like a Unlimited plan option</p>
+                                                <p style = {{ color: 'cadetblue', fontSize: 14 }}>Don't have a code and would like a Unlimited plan option</p>
                                                 <p style = {{ color: '#259fc4', fontWeight: 'bold' }}>Talk to sales</p>
                                             </div>
                                             <VoicemailIcon style = {{ color: '#259fc4', fontSize: 80, marginLeft: 20 }}/>
