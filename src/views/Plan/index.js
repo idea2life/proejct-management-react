@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import styles from './plan.scss';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import TextField from '@material-ui/core/TextField';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import FlightIcon from '@material-ui/icons/Flight';
 import VoicemailIcon from '@material-ui/icons/Voicemail';
@@ -97,7 +98,7 @@ export default class Home extends React.Component {
         }
     }
 
-    handleBilledStateChange = (event, value) => {
+    handleBilledStateChange = (value) => {
         this.setState({ billedState: value });
     };
 
@@ -165,6 +166,35 @@ export default class Home extends React.Component {
         )
     }
 
+    parBarComponent = (type, val3) => {
+        const color = type === 1 ? '#259fc4' : '#999999';
+        return(
+            <div style = {{ display: 'flex', width: type === 1 && val3 ? '45%' : '100%', alignItems: 'center', padding: 5 }}>
+                <div style = {{ width: 5, height: 5, backgroundColor: color }}>
+                </div>
+                <hr style = {{ backgroundColor: color, width: '100%', height: 1 }}></hr>
+                <div style = {{ width: 5, height: 5, backgroundColor: color }}>
+                </div>
+            </div>
+        )
+    }
+    barComponent = (val1, val2, val3) => {
+        return(
+            <div style = {{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', padding: '0px 0' }}>
+                <div style = {{ color: '#999999' }}>{val1}</div>
+                {this.parBarComponent(1, val3)}
+                <div style = {{ width: 30, height: 30, backgroundColor: 'rgba(0, 0, 0, 0.12)', borderRadius: 15, color: '#259fc4', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>{val2}</div>
+                {
+                    val3 &&
+                    <div style = {{ width: '45%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        {this.parBarComponent(2)}
+                        <div style = {{ color: '#999999' }}>{val3}</div>
+                    </div>
+                }
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className = "container">
@@ -180,10 +210,10 @@ export default class Home extends React.Component {
                     <Grid container item xs={7} style={{height: '100%', padding: 30}}>
                         <Grid container item xs={12} justify="space-between" alignItems="center">
                             <Typography className = "dis-text">plans</Typography>
-                            <ToggleButtonGroup size="small" value={this.state.billedState} exclusive onChange={this.handleBilledStateChange}>
-                                <CssToggleButton key={1} value="Monthly">Monthly</CssToggleButton>
-                                <CssToggleButton key={2} value="Annual">Annual</CssToggleButton>
-                            </ToggleButtonGroup>
+                            <div style = {{ display : 'flex' }}>
+                                <Button className = {classNames({ "billedBtn": true, "leftBtn": true, "billedSelectedBtn": this.state.billedState !== 'Annual' })} onClick= {() => { this.handleBilledStateChange("Monthly"); }}>Monthly</Button>
+                                <Button className = {classNames({ "billedBtn": true, "rightBtn": true, "billedSelectedBtn": this.state.billedState === 'Annual' })} onClick= {() => { this.handleBilledStateChange("Annual"); }}>Annual</Button>
+                            </div>
                         </Grid>
                         <Grid container item xs={12} justify="space-between" alignItems="center">
                             {this.planButton("Starter")}
@@ -194,7 +224,7 @@ export default class Home extends React.Component {
                             this.state.planState === 'Starter' &&
                             <div style = {{ width: '100%' }}>
                                 <p className = "dis-text">Users <span className = "smallText">1 included</span></p>
-                                <IOSSlider aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on" max={1} />
+                                {this.barComponent(1, 1)}
                                 <div className = "part-container">
                                     <p className = "dis-text">Accounts <span className = "smallText">10 included</span></p>
                                     <div>
@@ -202,7 +232,62 @@ export default class Home extends React.Component {
                                         <span className="small-black">per month</span>
                                     </div>
                                 </div>
-                                <IOSSlider aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on" max={50} min={10} />
+                                {this.barComponent(10, 25, 50)}
+                            </div>
+                        }
+                        {
+                            this.state.planState === 'Premium' &&
+                            <div style = {{ width: '100%' }}>
+                                <div className = "part-container">
+                                    <p className = "dis-text">Users <span className = "smallText">10 included</span></p>
+                                    <div>
+                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$40</span>
+                                        <span className="small-black">per month</span>
+                                    </div>
+                                </div>
+                                {this.barComponent(10, 75, 250)}
+                                <div className = "part-container">
+                                    <p className = "dis-text">Accounts <span className = "smallText">50 included</span></p>
+                                    <div>
+                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$150</span>
+                                        <span className="small-black">per month</span>
+                                    </div>
+                                </div>
+                                {this.barComponent(50, 200, 1000)}
+                            </div>
+                        }
+                        {
+                            this.state.planState === 'Enterprise' &&
+                            <div style = {{ width: '100%' }}>
+                                <div className = "part-container">
+                                    <p className = "dis-text">Users <span className = "smallText">10 included</span></p>
+                                    <div>
+                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$40</span>
+                                        <span className="small-black">per month</span>
+                                    </div>
+                                </div>
+                                {this.barComponent(10, 75, 250)}
+                                <div>
+                                    <p style = {{ fontWeight: 'bold', paddingTop: 20 }}>Accounts <span style = {{ fontWeight: '400' }}>UNLIMITED</span></p>
+                                    <div style = {{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'cadetblue' }}>
+                                        <p>Enter your enterprise pricing code here: &nbsp;</p>
+                                        <TextField
+                                            id="price"
+                                            label="price"
+                                            variant="outlined"
+                                            size = "small"
+                                            style = {{ height: 40 }}
+                                        />
+                                    </div>
+                                    <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <div style = {{ textAlign: 'right' }}>
+                                            <p style = {{ color: 'cadetblue' }}>Don't have a code and would like a Unlimited plan option</p>
+                                            <p style = {{ color: '#259fc4', fontWeight: 'bold' }}>Talk to sales</p>
+                                        </div>
+                                        <VoicemailIcon style = {{ color: '#259fc4', fontSize: 80, marginLeft: 20 }}/>
+
+                                    </div>
+                                </div>
                             </div>
                         }
                         {

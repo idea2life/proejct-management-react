@@ -16,6 +16,27 @@
     padding-bottom: 50px;
 }
 
+.billedBtn {
+    background-color: #e3ebee!important;
+}
+
+.billedSelectedBtn {
+    background-color: #259fc4!important;
+    color: #ffffff!important;
+}
+
+.leftBtn {
+    border-top-left-radius: 10px!important;
+    border-bottom-left-radius: 10px!important;
+    border-top-right-radius: 0px!important;
+}
+
+.rightBtn {
+    border-top-right-radius: 10px!important;
+    border-bottom-right-radius: 10px!important;
+    border-top-left-radius: 0px!important;
+}
+
 .planBtn {
     background-color: #e3ebee!important;
     font-size: 13px;
