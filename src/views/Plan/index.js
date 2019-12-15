@@ -118,114 +118,116 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div className = "container">
-                <Typography variant="body2" className = "title" align="center">
-                    BUILD YOUR PLAN
-                </Typography>
-                <Grid
-                    container
-                    item
-                    justify="space-around"
-                    alignItems="center"
-                    >
-                    <Grid container item xs={7} style={{height: '100%', padding: 30}}>
-                        <Grid container item xs={12} justify="space-between" alignItems="center">
-                            <Typography className = "dis-text">plans</Typography>
-                            <div style = {{ display : 'flex' }}>
-                                <Button className = {classNames({ "billedBtn": true, "leftBtn": true, "billedSelectedBtn": this.state.billedState !== 'Annual' })} onClick= {() => { this.handleBilledStateChange("Monthly"); }}>Monthly</Button>
-                                <Button className = {classNames({ "billedBtn": true, "rightBtn": true, "billedSelectedBtn": this.state.billedState === 'Annual' })} onClick= {() => { this.handleBilledStateChange("Annual"); }}>Annual</Button>
-                            </div>
-                        </Grid>
-                        <Grid container item xs={12} justify="space-between" alignItems="center">
-                            {this.planButton("Starter")}
-                            {this.planButton("Premium")}
-                            {this.planButton("Enterprise")}
-                        </Grid>
-                        {
-                            this.state.planState === 'Starter' &&
-                            <div style = {{ width: '100%' }}>
-                                <p className = "dis-text">Users <span className = "smallText">1 included</span></p>
-                                {this.barComponent(1, 1)}
-                                <div className = "part-container">
-                                    <p className = "dis-text">Accounts <span className = "smallText">10 included</span></p>
-                                    <div>
-                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$150</span>
-                                        <span className="small-black">per month</span>
-                                    </div>
+            <div>
+                <div className = "container">
+                    <Typography variant="body2" className = "title" align="center">
+                        BUILD YOUR PLAN
+                    </Typography>
+                    <Grid
+                        container
+                        item
+                        justify="space-around"
+                        alignItems="center"
+                        >
+                        <Grid container item md={7} style={{height: '100%', padding: 40}}>
+                            <Grid container item xs={12} justify="space-between" alignItems="center">
+                                <Typography className = "dis-text">plans</Typography>
+                                <div style = {{ display : 'flex' }}>
+                                    <Button className = {classNames({ "billedBtn": true, "leftBtn": true, "billedSelectedBtn": this.state.billedState !== 'Annual' })} onClick= {() => { this.handleBilledStateChange("Monthly"); }}>Monthly</Button>
+                                    <Button className = {classNames({ "billedBtn": true, "rightBtn": true, "billedSelectedBtn": this.state.billedState === 'Annual' })} onClick= {() => { this.handleBilledStateChange("Annual"); }}>Annual</Button>
                                 </div>
-                                {this.barComponent(10, 25, 50)}
-                            </div>
-                        }
-                        {
-                            this.state.planState === 'Premium' &&
-                            <div style = {{ width: '100%' }}>
-                                <div className = "part-container">
-                                    <p className = "dis-text">Users <span className = "smallText">10 included</span></p>
-                                    <div>
-                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$40</span>
-                                        <span className="small-black">per month</span>
-                                    </div>
-                                </div>
-                                {this.barComponent(10, 75, 250)}
-                                <div className = "part-container">
-                                    <p className = "dis-text">Accounts <span className = "smallText">50 included</span></p>
-                                    <div>
-                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$150</span>
-                                        <span className="small-black">per month</span>
-                                    </div>
-                                </div>
-                                {this.barComponent(50, 200, 1000)}
-                            </div>
-                        }
-                        {
-                            this.state.planState === 'Enterprise' &&
-                            <div style = {{ width: '100%' }}>
-                                <div className = "part-container">
-                                    <p className = "dis-text">Users <span className = "smallText">10 included</span></p>
-                                    <div>
-                                        <span className={classNames({"small-black": true, "small-wrapper": true})}>$40</span>
-                                        <span className="small-black">per month</span>
-                                    </div>
-                                </div>
-                                {this.barComponent(10, 75, 250)}
-                                <div>
-                                    <p style = {{ fontWeight: 'bold', paddingTop: 20 }}>Accounts <span style = {{ fontWeight: '400' }}>UNLIMITED</span></p>
-                                    <div style = {{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'cadetblue' }}>
-                                        <p>Enter your enterprise pricing code here: &nbsp;</p>
-                                        <TextField
-                                            id="price"
-                                            label="price"
-                                            variant="outlined"
-                                            size = "small"
-                                            style = {{ height: 40 }}
-                                        />
-                                    </div>
-                                    <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <div style = {{ textAlign: 'right' }}>
-                                            <p style = {{ color: 'cadetblue' }}>Don't have a code and would like a Unlimited plan option</p>
-                                            <p style = {{ color: '#259fc4', fontWeight: 'bold' }}>Talk to sales</p>
+                            </Grid>
+                            <Grid container item xs={12} justify="space-between" alignItems="center">
+                                {this.planButton("Starter")}
+                                {this.planButton("Premium")}
+                                {this.planButton("Enterprise")}
+                            </Grid>
+                            {
+                                this.state.planState === 'Starter' &&
+                                <div style = {{ width: '100%' }}>
+                                    <p className = "dis-text">Users <span className = "smallText">1 included</span></p>
+                                    {this.barComponent(1, 1)}
+                                    <div className = "part-container">
+                                        <p className = "dis-text">Accounts <span className = "smallText">10 included</span></p>
+                                        <div>
+                                            <span className={classNames({"small-black": true, "small-wrapper": true})}>$150</span>
+                                            <span className="small-black">per month</span>
                                         </div>
-                                        <VoicemailIcon style = {{ color: '#259fc4', fontSize: 80, marginLeft: 20 }}/>
+                                    </div>
+                                    {this.barComponent(10, 25, 50)}
+                                </div>
+                            }
+                            {
+                                this.state.planState === 'Premium' &&
+                                <div style = {{ width: '100%' }}>
+                                    <div className = "part-container">
+                                        <p className = "dis-text">Users <span className = "smallText">10 included</span></p>
+                                        <div>
+                                            <span className={classNames({"small-black": true, "small-wrapper": true})}>$40</span>
+                                            <span className="small-black">per month</span>
+                                        </div>
+                                    </div>
+                                    {this.barComponent(10, 75, 250)}
+                                    <div className = "part-container">
+                                        <p className = "dis-text">Accounts <span className = "smallText">50 included</span></p>
+                                        <div>
+                                            <span className={classNames({"small-black": true, "small-wrapper": true})}>$150</span>
+                                            <span className="small-black">per month</span>
+                                        </div>
+                                    </div>
+                                    {this.barComponent(50, 200, 1000)}
+                                </div>
+                            }
+                            {
+                                this.state.planState === 'Enterprise' &&
+                                <div style = {{ width: '100%' }}>
+                                    <div className = "part-container">
+                                        <p className = "dis-text">Users <span className = "smallText">10 included</span></p>
+                                        <div>
+                                            <span className={classNames({"small-black": true, "small-wrapper": true})}>$40</span>
+                                            <span className="small-black">per month</span>
+                                        </div>
+                                    </div>
+                                    {this.barComponent(10, 75, 250)}
+                                    <div>
+                                        <p style = {{ fontWeight: 'bold', paddingTop: 20 }}>Accounts <span style = {{ fontWeight: '400' }}>UNLIMITED</span></p>
+                                        <div style = {{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'cadetblue' }}>
+                                            <p>Enter your enterprise pricing code here: &nbsp;</p>
+                                            <TextField
+                                                id="price"
+                                                label="price"
+                                                variant="outlined"
+                                                size = "small"
+                                                style = {{ height: 40 }}
+                                            />
+                                        </div>
+                                        <div style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            <div style = {{ textAlign: 'right' }}>
+                                                <p style = {{ color: 'cadetblue' }}>Don't have a code and would like a Unlimited plan option</p>
+                                                <p style = {{ color: '#259fc4', fontWeight: 'bold' }}>Talk to sales</p>
+                                            </div>
+                                            <VoicemailIcon style = {{ color: '#259fc4', fontSize: 80, marginLeft: 20 }}/>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        }
-                        {
-                            this.state.planState !== 'Enterprise' &&
-                            <Typography style = {{ color: '#555656', fontSize: 11 }}>
-                                We offer special pricing discounts for associations and groups. <span style = {{ color: '#259fc4', fontWeight: 'bold' }}>Find out more. </span>
-                                Enter your group discount code here:
-                            </Typography>
-                        }
-                        
+                            }
+                            {
+                                this.state.planState !== 'Enterprise' &&
+                                <Typography style = {{ color: '#555656', fontSize: 11 }}>
+                                    We offer special pricing discounts for associations and groups. <span style = {{ color: '#259fc4', fontWeight: 'bold' }}>Find out more. </span>
+                                    Enter your group discount code here:
+                                </Typography>
+                            }
+                            
 
+                        </Grid>
+                        <Grid container item md={5} justify="center" alignItems="center">
+                            {this.rightComponent()}
+                        </Grid>
                     </Grid>
-                    <Grid container item xs={5} justify="center" alignItems="center">
-                        {this.rightComponent()}
-                    </Grid>
-                </Grid>
-                
+                    
+                </div>
             </div>
         );
     }
