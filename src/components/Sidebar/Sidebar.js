@@ -14,6 +14,7 @@ import Icon from "@material-ui/core/Icon";
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
 import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
+import logo from "assets/img/logo.png";
 
 const useStyles = makeStyles(styles);
 
@@ -23,7 +24,7 @@ export default function Sidebar(props) {
   function activeRoute(routeName) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   }
-  const { color, logo, logoText, routes } = props;
+  const { color, logoText, routes } = props;
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -80,6 +81,7 @@ export default function Sidebar(props) {
       <div className={classes.logoImage}>
         <img src={logo} alt="logo" className={classes.img} />
       </div>
+      <p className={classes.logoText}>Logo</p>
     </div>
   );
   return (
@@ -131,7 +133,6 @@ Sidebar.propTypes = {
   rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
   bgColor: PropTypes.oneOf(["purple", "blue", "green", "orange", "red"]),
-  logo: PropTypes.string,
   image: PropTypes.string,
   logoText: PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.object),

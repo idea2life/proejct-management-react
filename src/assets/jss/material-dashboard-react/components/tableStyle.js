@@ -77,30 +77,6 @@ const tableStyle = theme => ({
     display: "table-row",
     outline: "none",
     verticalAlign: "middle"
-  },
-  newBtn: {
-    backgroundColor: 'transparent!important',
-    fontSize: "12px",
-    lineHeight: "21px",
-    color: "#1d5f92",
-    fontFamily: "Source Sans Pro",
-    fontWeight: 600,
-    padding: 0,
-    boxShadow: 'none',
-    margin: "12px 0 0 0",
-    textTransform: 'none',
-    "&:hover,&:focus,&:visited,&": {
-      boxShadow: 'none',
-      color: "#1d5f92"
-    }
-  },
-  txt: {
-    fontSize: "12px",
-    lineHeight: "21px",
-    color: "#707070",
-    fontFamily: "Source Sans Pro",
-    fontWeight: 600,
-    margin: 0
   }
 });
 
