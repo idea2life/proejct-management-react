@@ -20,7 +20,7 @@ export default class Signup extends React.Component {
                 alignItems="center"
                 >
                 <Grid container item xs={6} style={{height: '100%'}}>
-                    <img src = {background} style = {{ width: '100%', height: '100vh'}}/>
+                    <img src = {background} style = {{ width: '100%', height: '100vh'}} alt="background" />
                 </Grid>
                 <Grid container item xs={6} justify="center" alignItems="center">
                     <SignUpForm />

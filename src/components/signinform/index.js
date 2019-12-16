@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignInForm() {
+export default function SignInForm(props) {
   const classes = useStyles();
 
   return (
@@ -151,6 +151,7 @@ export default function SignInForm() {
                 variant="contained"
                 color="primary"
                 className={classes.loginBtn}
+                onClick={() => { props.onLogin(); }}
               >
                 LogIn
               </Button>
