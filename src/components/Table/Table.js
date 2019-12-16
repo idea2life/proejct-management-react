@@ -7,6 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 // core components
 import styles from "assets/jss/material-dashboard-react/components/tableStyle.js";
 
@@ -19,7 +20,7 @@ export default function CustomTable(props) {
     <div className={classes.tableResponsive}>
       <Table className={classes.table}>
         {tableHead !== undefined ? (
-          <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
+          <TableHead className={classes[`${tableHeaderColor}TableHeader`]}>
             <TableRow className={classes.tableHeadRow}>
               {tableHead.map((prop, key) => {
                 return (
@@ -27,7 +28,10 @@ export default function CustomTable(props) {
                     className={classes.tableCell + " " + classes.tableHeadCell}
                     key={key}
                   >
-                    {prop}
+                    <span>{prop}</span>
+                    {prop === "ID" &&
+                      <ArrowUpwardIcon style={{width: 20, height: 20, margin: '0 0 -5px 10px'}} />
+                    }
                   </TableCell>
                 );
               })}
@@ -35,12 +39,19 @@ export default function CustomTable(props) {
           </TableHead>
         ) : null}
         <TableBody>
-          {tableData.map((prop, key) => {
+          {tableData.map((row, key) => {
             return (
               <TableRow key={key} className={classes.tableBodyRow}>
-                {prop.map((prop, key) => {
+                {row.map((prop, key) => {
+                  const color = prop === "TASK" ? "#01fd2b" : prop === "AREA" ? "#fdcc01" : prop === "LEVEL" ? "#fd2301" : prop === "PHASE" ? "#0101fd" : "#333333";
+                  const background = key < 2 ? "#cce6f7" : "transparent";
+                  let suf = "";
+                  if (key === 2) {
+                    suf = row[0] === "TASK" ? <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : row[0] === "AREA" ? <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> : row[0] === "LEVEL" ? <span>&nbsp;&nbsp;</span> : "";
+                  }
                   return (
-                    <TableCell className={classes.tableCell} key={key}>
+                    <TableCell className={classes.tableCell} style={{color: color, backgroundColor: background}} key={key}>
+                      {suf}  
                       {prop}
                     </TableCell>
                   );
@@ -55,7 +66,7 @@ export default function CustomTable(props) {
 }
 
 CustomTable.defaultProps = {
-  tableHeaderColor: "gray"
+  tableHeaderColor: "default"
 };
 
 CustomTable.propTypes = {
@@ -66,7 +77,8 @@ CustomTable.propTypes = {
     "success",
     "info",
     "rose",
-    "gray"
+    "gray",
+    "default"
   ]),
   tableHead: PropTypes.arrayOf(PropTypes.string),
   tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))

@@ -27,6 +27,13 @@ const dashboardRoutes = [
     component: DashboardPage,
     layout: "/admin"
   },
+  {
+    path: "/haveQuestions",
+    name: "Have questions?",
+    icon: "textOnly",
+    component: DashboardPage,
+    layout: "/admin"
+  }
 ];
 
 export default dashboardRoutes;

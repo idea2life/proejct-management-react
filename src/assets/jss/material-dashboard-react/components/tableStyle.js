@@ -10,6 +10,9 @@ import {
 } from "assets/jss/material-dashboard-react.js";
 
 const tableStyle = theme => ({
+  defaultTableHeader: {
+    color: "#333333"
+  },
   warningTableHeader: {
     color: warningColor[0]
   },
@@ -43,15 +46,18 @@ const tableStyle = theme => ({
     color: "inherit",
     ...defaultFont,
     "&, &$tableCell": {
-      fontSize: "1em"
+      fontSize: "12px"
     }
   },
   tableCell: {
     ...defaultFont,
-    lineHeight: "1.42857143",
-    padding: "12px 8px",
-    verticalAlign: "middle",
-    fontSize: "0.8125rem"
+      fontSize: "12px",
+      lineHeight: "21px",
+      fontFamily: "Source Sans Pro",
+      fontWeight: 600,
+      verticalAlign: "middle",
+      borderColor: '#ffffff',
+      padding: "0 5px 0 5px"
   },
   tableResponsive: {
     width: "100%",
@@ -59,18 +65,42 @@ const tableStyle = theme => ({
     overflowX: "auto"
   },
   tableHeadRow: {
-    height: "56px",
+    height: "28x",
     color: "inherit",
     display: "table-row",
     outline: "none",
     verticalAlign: "middle"
   },
   tableBodyRow: {
-    height: "48px",
+    height: "28px",
     color: "inherit",
     display: "table-row",
     outline: "none",
     verticalAlign: "middle"
+  },
+  newBtn: {
+    backgroundColor: 'transparent!important',
+    fontSize: "12px",
+    lineHeight: "21px",
+    color: "#1d5f92",
+    fontFamily: "Source Sans Pro",
+    fontWeight: 600,
+    padding: 0,
+    boxShadow: 'none',
+    margin: "12px 0 0 0",
+    textTransform: 'none',
+    "&:hover,&:focus,&:visited,&": {
+      boxShadow: 'none',
+      color: "#1d5f92"
+    }
+  },
+  txt: {
+    fontSize: "12px",
+    lineHeight: "21px",
+    color: "#707070",
+    fontFamily: "Source Sans Pro",
+    fontWeight: 600,
+    margin: 0
   }
 });
 
