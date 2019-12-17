@@ -177,11 +177,10 @@ export default function Dashboard() {
               <TimelineHeaders>
                 <DateHeader unit="primaryHeader"
                 style={{ background: '#f0f0f0' }}
-                intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
+                intervalRenderer={({ getIntervalProps, intervalContext }) => {
                     return <div
                       {...getIntervalProps()}
-                      className="rct-dateHeader rct-dateHeader-primary"
-                      style={{color: '#707070', fontSize: 8}}
+                      className={classNames(["rct-dateHeader rct-dateHeader-primary", classes.chartHeader])}
                         >
                         {intervalContext.intervalText}
                     </div>
@@ -195,6 +194,7 @@ export default function Dashboard() {
                       className={classNames(["rct-dateHeader", classes.chartHeader])}
                       style={{
                         ...getIntervalProps().style,
+                        marginLeft: '-1px',
                         borderLeft: intervalContext.intervalText === '1' ? '2px solid #bbb' : 'none' }}
                       >
                       {intervalContext.intervalText}
