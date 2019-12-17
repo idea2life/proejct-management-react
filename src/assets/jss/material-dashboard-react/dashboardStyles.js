@@ -80,7 +80,10 @@ const dashboardStyles = {
   chartHeader: {
     color: '#707070!important',
     fontSize: '8px!important',
-  }
+  },
+  chartFirstHeader: {
+    justifyContent: 'space-around!important',
+  },
 };
 
 export default dashboardStyles;

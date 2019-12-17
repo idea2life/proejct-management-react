@@ -180,9 +180,10 @@ export default function Dashboard() {
                 intervalRenderer={({ getIntervalProps, intervalContext }) => {
                     return <div
                       {...getIntervalProps()}
-                      className={classNames(["rct-dateHeader rct-dateHeader-primary", classes.chartHeader])}
+                      className={classNames(["rct-dateHeader rct-dateHeader-primary", classes.chartHeader, classes.chartFirstHeader])}
                         >
-                        {intervalContext.intervalText}
+                        <div>{intervalContext.intervalText}</div>
+                        <div>{intervalContext.intervalText}</div>
                     </div>
                   }}
                 />
