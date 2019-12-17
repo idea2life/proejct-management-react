@@ -76,7 +76,12 @@ const dashboardStyles = {
     borderColor: "#707070!important",
     borderRadius: "5px!important",
     height: '11px!important',
+  },
+  chartHeader: {
+    color: '#707070!important',
+    fontSize: '8px!important'
   }
+  
 
 };
 

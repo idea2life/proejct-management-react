@@ -149,19 +149,30 @@ export default function Dashboard() {
                 defaultTimeEnd={moment(new Date(2019, 8, 9))}
               >
                 <TimelineHeaders>
-                <DateHeader unit="primaryHeader"
-                  style={{ background: '#f0f0f0', color: '#3c4858' }}
+                  <DateHeader unit="primaryHeader"
+                  style={{ background: '#f0f0f0' }}
                   intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
                       return <div
                         {...getIntervalProps()}
                         className="rct-dateHeader rct-dateHeader-primary"
-                        style={{color: '#3c4858'}}
+                        style={{color: '#707070', fontSize: 8}}
+                          >
+                          {intervalContext.intervalText}
+                      </div>
+                    }}
+                  />
+                  <DateHeader
+                    unit="day"
+                    labelFormat="D"
+                    intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
+                      return <div {...getIntervalProps()}
+                        className={classNames(["rct-dateHeader", classes.chartHeader])}
                         >
                         {intervalContext.intervalText}
-                    </div>
-                  }}
-                />
-                <DateHeader />
+
+                      </div>
+                    }}
+                  />
                 </TimelineHeaders>
               </Timeline>
             </div>
