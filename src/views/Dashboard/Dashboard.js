@@ -97,7 +97,7 @@ export default function Dashboard() {
   return (
     <div style={{height: '100%'}}>
       <GridContainer style={{height: '100%'}}>
-        <GridItem xs={12} sm={12} md={6}>
+        <GridItem xs={12} sm={12} md={7}>
           <Table
             tableHeaderColor="default"
             tableHead={["TYPE", "ID", "SUBJECT", "STATUS", "ASSIGNEE"]}
@@ -114,7 +114,7 @@ export default function Dashboard() {
             <p className={classes.txt}>(1-1/1)</p>
           </div>
         </GridItem>
-        <GridItem xs={12} sm={12} md={6}>
+        <GridItem xs={12} sm={12} md={5}>
             <div className={classes.topButtonWrapper}>
               <CustomButtons className={classNames([classes.btn, classes.createBtn])}>
                 + Create

@@ -61,19 +61,19 @@ const dashboardStyles = {
   },
   phase: {
     background: "#0101fd!important",
-    borderColor: "#333333!important"
+    borderColor: "#707070!important"
   },
   level: {
     background: "#fd2301!important",
-    borderColor: "#333333!important"
+    borderColor: "#707070!important"
   },
   area: {
     background: "#fdcc01!important",
-    borderColor: "#333333!important"
+    borderColor: "#707070!important"
   },
   task: {
     background: "#01fd2b!important",
-    borderColor: "#333333!important",
+    borderColor: "#707070!important",
     borderRadius: "5px!important",
     height: '11px!important',
   }
