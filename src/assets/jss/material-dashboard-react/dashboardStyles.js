@@ -58,6 +58,24 @@ const dashboardStyles = {
     width: "15px!important",
     height: "15px!important",
     margin: "0!important"
+  },
+  phase: {
+    background: "#0101fd!important",
+    borderColor: "#333333!important"
+  },
+  level: {
+    background: "#fd2301!important",
+    borderColor: "#333333!important"
+  },
+  area: {
+    background: "#fdcc01!important",
+    borderColor: "#333333!important"
+  },
+  task: {
+    background: "#01fd2b!important",
+    borderColor: "#333333!important",
+    borderRadius: "5px!important",
+    height: '11px!important',
   }
 
 };

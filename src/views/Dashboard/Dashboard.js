@@ -15,6 +15,11 @@ import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
 import SaveOutlinedIcon from '@material-ui/icons/SaveOutlined';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
+
+import Timeline, { TimelineHeaders, DateHeader } from "react-calendar-timeline";
+import 'react-calendar-timeline/lib/Timeline.css'
+import moment from 'moment'
+
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
@@ -27,10 +32,72 @@ export default function Dashboard() {
     { icon: ZoomOutMapIcon },
     { icon: MoreVertOutlinedIcon }
   ]
+  
+  const groups = [
+    { id: 1, title: '' },
+    { id: 2, title: '' },
+    { id: 3, title: '' },
+    { id: 4, title: '' },
+    { id: 5, title: '' }
+  ]
+  
+  const items = [
+    {
+      id: 1,
+      group: 1,
+      title: '',
+      start_time: moment(new Date(2019, 7, 29, 12)),
+      end_time: moment(new Date(2019, 8, 10)),
+      itemProps: {
+        className: classes.phase,
+      }
+    },
+    {
+      id: 2,
+      group: 2,
+      title: '',
+      start_time: moment(new Date(2019, 7, 29, 12)),
+      end_time: moment(new Date(2019, 8, 10)),
+      itemProps: {
+        className: classes.level,
+      }
+    },
+    {
+      id: 3,
+      group: 3,
+      title: '',
+      start_time: moment(new Date(2019, 7, 29, 12)),
+      end_time: moment(new Date(2019, 8, 10)),
+      itemProps: {
+        className: classes.area,
+      }
+    },
+    {
+      id: 4,
+      group: 4,
+      title: '',
+      start_time: moment(new Date(2019, 7, 29, 12)),
+      end_time: moment(new Date(2019, 8, 2, 22)),
+      itemProps: {
+        className: classes.task,
+      }
+    },
+    {
+      id: 5,
+      group: 5,
+      title: '',
+      start_time: moment(new Date(2019, 8, 3)),
+      end_time: moment(new Date(2019, 8, 7, 5)),
+      itemProps: {
+        className: classes.task,
+      }
+    },
+  ]
+
   return (
     <div style={{height: '100%'}}>
       <GridContainer style={{height: '100%'}}>
-        <GridItem xs={12} sm={12} md={7}>
+        <GridItem xs={12} sm={12} md={6}>
           <Table
             tableHeaderColor="default"
             tableHead={["TYPE", "ID", "SUBJECT", "STATUS", "ASSIGNEE"]}
@@ -47,7 +114,7 @@ export default function Dashboard() {
             <p className={classes.txt}>(1-1/1)</p>
           </div>
         </GridItem>
-        <GridItem xs={12} sm={12} md={5}>
+        <GridItem xs={12} sm={12} md={6}>
             <div className={classes.topButtonWrapper}>
               <CustomButtons className={classNames([classes.btn, classes.createBtn])}>
                 + Create
@@ -70,6 +137,33 @@ export default function Dashboard() {
                   )
                 })
               }
+            </div>
+            <div>
+              <Timeline
+                className="timelineChart"
+                groups={groups}
+                items={items}
+                sidebarWidth={0}
+                itemHeightRatio={0.17}
+                defaultTimeStart={moment(new Date(2019, 7, 29))}
+                defaultTimeEnd={moment(new Date(2019, 8, 9))}
+              >
+                <TimelineHeaders>
+                <DateHeader unit="primaryHeader"
+                  style={{ background: '#f0f0f0', color: '#3c4858' }}
+                  intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
+                      return <div
+                        {...getIntervalProps()}
+                        className="rct-dateHeader rct-dateHeader-primary"
+                        style={{color: '#3c4858'}}
+                        >
+                        {intervalContext.intervalText}
+                    </div>
+                  }}
+                />
+                <DateHeader />
+                </TimelineHeaders>
+              </Timeline>
             </div>
         </GridItem>
       </GridContainer>

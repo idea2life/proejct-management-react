@@ -61,7 +61,7 @@ const tableStyle = theme => ({
   },
   tableResponsive: {
     width: "100%",
-    marginTop: theme.spacing(3),
+    marginTop: 71,
     overflowX: "auto"
   },
   tableHeadRow: {
@@ -72,7 +72,7 @@ const tableStyle = theme => ({
     verticalAlign: "middle"
   },
   tableBodyRow: {
-    height: "28px",
+    height: "30px",
     color: "inherit",
     display: "table-row",
     outline: "none",
