@@ -25,8 +25,8 @@ const dashboardStyles = {
   },
   topButtonWrapper: {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 10
   },
   btn: {
     padding: '2px 5px',
@@ -79,10 +79,8 @@ const dashboardStyles = {
   },
   chartHeader: {
     color: '#707070!important',
-    fontSize: '8px!important'
+    fontSize: '8px!important',
   }
-  
-
 };
 
 export default dashboardStyles;

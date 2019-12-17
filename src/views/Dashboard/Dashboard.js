@@ -18,6 +18,7 @@ import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 
 import Timeline, { TimelineHeaders, DateHeader } from "react-calendar-timeline";
 import 'react-calendar-timeline/lib/Timeline.css'
+import './index.css'
 import moment from 'moment'
 
 const useStyles = makeStyles(styles);
@@ -38,7 +39,15 @@ export default function Dashboard() {
     { id: 2, title: '' },
     { id: 3, title: '' },
     { id: 4, title: '' },
-    { id: 5, title: '' }
+    { id: 5, title: '' },
+    { id: 6, title: '' },
+    { id: 7, title: '' },
+    { id: 8, title: '' },
+    { id: 9, title: '' },
+    { id: 10, title: '' },
+    { id: 11, title: '' },
+    { id: 12, title: '' },
+    { id: 13, title: '' }
   ]
   
   const items = [
@@ -92,6 +101,16 @@ export default function Dashboard() {
         className: classes.task,
       }
     },
+    {
+      id: 6,
+      group: 6,
+      title: '',
+      start_time: moment(new Date(2019, 8, 6, 2)),
+      end_time: moment(new Date(2019, 8, 10)),
+      itemProps: {
+        className: classes.task,
+      }
+    },
   ]
 
   return (
@@ -105,8 +124,16 @@ export default function Dashboard() {
               ["PHASE", "42", "Construction", "", ""],
               ["LEVEL", "43", "Level 1", "", ""],
               ["AREA", "44", "Area A", "", ""],
-              ["TASK", "45", "Excavation", "started", "Jim's Digging"],
-              ["TASK", "46", "Underground", "On Deck", "PP Plumbers"]
+              ["TASK", "45", "Excavation", "Started", "Jim's Digging"],
+              ["TASK", "46", "Underground", "On Deck", "PP Plumbers"],
+              ["TASK", "47", "Form Foundation", "Not Started", "Rick's Concrete"],
+              ["TASK", "48", "Pour Foundation", "Not Started", "Rick's Concrete"],
+              ["TASK", "49", "Strip Forms", "Not Started", "Rick's Concrete"],
+              ["AREA", "50", "Area B", "", ""],
+              ["TASK", "51", "Underground", "On Deck", "Carpenters"],
+              ["TASK", "52", "Form Foundation", "Not Started", "Carpenters"],
+              ["TASK", "53", "Pour Foundation", "Not Started", "Carpenters"],
+              ["TASK", "54", "Strip Forms", "Not Started", "Carpenters"],
             ]}
           />
           <div>
@@ -138,44 +165,45 @@ export default function Dashboard() {
                 })
               }
             </div>
-            <div>
-              <Timeline
-                className="timelineChart"
-                groups={groups}
-                items={items}
-                sidebarWidth={0}
-                itemHeightRatio={0.17}
-                defaultTimeStart={moment(new Date(2019, 7, 29))}
-                defaultTimeEnd={moment(new Date(2019, 8, 9))}
-              >
-                <TimelineHeaders>
-                  <DateHeader unit="primaryHeader"
-                  style={{ background: '#f0f0f0' }}
-                  intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
-                      return <div
-                        {...getIntervalProps()}
-                        className="rct-dateHeader rct-dateHeader-primary"
-                        style={{color: '#707070', fontSize: 8}}
-                          >
-                          {intervalContext.intervalText}
-                      </div>
-                    }}
-                  />
-                  <DateHeader
-                    unit="day"
-                    labelFormat="D"
-                    intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
-                      return <div {...getIntervalProps()}
-                        className={classNames(["rct-dateHeader", classes.chartHeader])}
+            <Timeline
+              className="timelineChart"
+              groups={groups}
+              items={items}
+              sidebarWidth={0}
+              itemHeightRatio={0.17}
+              defaultTimeStart={moment(new Date(2019, 7, 29))}
+              defaultTimeEnd={moment(new Date(2019, 8, 10))}
+            >
+              <TimelineHeaders>
+                <DateHeader unit="primaryHeader"
+                style={{ background: '#f0f0f0' }}
+                intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
+                    return <div
+                      {...getIntervalProps()}
+                      className="rct-dateHeader rct-dateHeader-primary"
+                      style={{color: '#707070', fontSize: 8}}
                         >
                         {intervalContext.intervalText}
+                    </div>
+                  }}
+                />
+                <DateHeader
+                  unit="day"
+                  labelFormat="D"
+                  intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
+                    return <div {...getIntervalProps()}
+                      className={classNames(["rct-dateHeader", classes.chartHeader])}
+                      style={{
+                        ...getIntervalProps().style,
+                        borderLeft: intervalContext.intervalText === '1' ? '2px solid #bbb' : 'none' }}
+                      >
+                      {intervalContext.intervalText}
 
-                      </div>
-                    }}
-                  />
-                </TimelineHeaders>
-              </Timeline>
-            </div>
+                    </div>
+                  }}
+                />
+              </TimelineHeaders>
+            </Timeline>
         </GridItem>
       </GridContainer>
     </div>
