@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import styles from "assets/jss/material-dashboard-react/views/scheduleStyles.js";
 import CustomButtons from "components/CustomButtons/Button.js";
 import Overview from "components/Schedule/Overview.js";
+import Activity from "components/Schedule/Activity";
+import Relations from "components/Schedule/Relations";
+import Watchers from "components/Schedule/Watchers";
 
 import CloseIcon from '@material-ui/icons/Close';
 import LaunchIcon from '@material-ui/icons/Launch';
@@ -62,8 +65,16 @@ function TabPanel(props) {
         value === index &&
          <div>
           {
-            value === 0 &&
-              <Overview />
+            value === 0 && <Overview />
+          }
+          {
+            value === 1 && <Activity />
+          }
+          {
+            value === 2 && <Relations />
+          }
+          {
+            value === 3 && <Watchers />
           }
          </div>
       }

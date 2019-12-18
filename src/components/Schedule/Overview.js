@@ -18,8 +18,7 @@ export default function Overview() {
       <div className={classes.titleWrapper}>
         DESCRIPTION
       </div>
-      <CKEditor 
-      />
+      <CKEditor />
       <div style={{display: 'flex', justifyContent: 'flex-end'}}>
         <div style={{border: '1px solid #d1d1d1', width: 'auto'}}>
           <CustomButtons style={styles.iconBtn}>

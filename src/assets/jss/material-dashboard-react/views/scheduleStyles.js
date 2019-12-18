@@ -153,6 +153,54 @@ const scheduleStyles = {
     position: 'absolute',
     left: 0,
     bottom: 0
+  },
+  commentContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    margin: '20px 0'
+  },
+  avatar: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#3fbe48',
+    fontSize: 12,
+    lineHeight: '21px',
+    fontWeight: 600,
+    fontFamily: "Source Sans Pro",
+    color: '#ffffff',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10
+  },
+  txtComment: {
+    fontSize: 10,
+    lineHeight: '17px',
+    fontWeight: 600,
+    fontFamily: "Source Sans Pro",
+    color: '#7d7d7d',
+  },
+  nameWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    color: '#175a8e',
+    fontWeight: 600,
+    fontFamily: "Source Sans Pro",
+  },
+  commentInput: {
+    padding: 10    
+  },
+  childrenInput: {
+    padding: 10,
+    border: '1px solid #707070',
+    borderRadius: 2, 
+    fontSize: 14,
+    lineHeight: '24px',
+    fontWeight: 600,
+    fontFamily: "Source Sans Pro",
+    color: '#333333',
   }
 
   
