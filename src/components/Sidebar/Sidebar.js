@@ -24,34 +24,28 @@ export default function Sidebar(props) {
   function activeRoute(routeName) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   }
-  const { color, logoText, routes } = props;
+  const { routes } = props;
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
         var activePro = " ";
-        var listItemClasses;
         if (prop.path === "/haveQuestions") {
           activePro = classes.activePro + " ";
-          listItemClasses = classNames({
-            [" " + classes[color]]: true
-          });
-        } else {
-          listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute(prop.layout + prop.path)
-          });
         }
         return (
           <NavLink
             to={prop.layout + prop.path}
-            className={activePro + classes.item}
+            className={classNames([activePro + classes.item, {[classes.activeBorder]: activeRoute(prop.layout + prop.path)}])}
             activeClassName="active"
             key={key}
           >
-            <ListItem button className={classes.itemLink}>
+            <ListItem button className={classNames(classes.itemLink, {
+              [classes.activeColor]: activeRoute(prop.layout + prop.path)
+            })}>
               {typeof prop.icon === "string" ? (
                 <Icon
                   className={classNames(classes.itemIcon, {
-                    [classes.itemIconRTL]: props.rtlActive
+                    [classes.activeColor]: activeRoute(prop.layout + prop.path)
                   })}
                 >
                   {prop.icon}
@@ -59,15 +53,13 @@ export default function Sidebar(props) {
               ) : (
                 <prop.icon
                   className={classNames(classes.itemIcon, {
-                    [classes.itemIconRTL]: props.rtlActive
+                    [classes.activeColor]: activeRoute(prop.layout + prop.path)
                   })}
                 />
               )}
               <ListItemText
                 primary={props.rtlActive ? prop.rtlName : prop.name}
-                className={classNames(classes.itemText, {
-                  [classes.itemTextRTL]: props.rtlActive
-                })}
+                className={classes.itemText}
                 disableTypography={true}
               />
             </ListItem>

@@ -17,13 +17,46 @@
 */
 // @material-ui/icons
 import DateRangeIcon from '@material-ui/icons/DateRange';
+import BarChartIcon from '@material-ui/icons/BarChart';
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import DashboardPage from "views/Dashboard/Dashboard.js";
+import Schedule from "views/Schedule/Schedule.js";
 
 const dashboardRoutes = [
   {
     path: "/dashboard",
-    name: "Look Ahead",
+    name: "Dashboard",
+    icon: BarChartIcon,
+    component: DashboardPage,
+    layout: "/admin"
+  },
+  {
+    path: "/schedule",
+    name: "Schedule",
     icon: DateRangeIcon,
+    component: Schedule,
+    layout: "/admin"
+  },
+  {
+    path: "/lookahead",
+    name: "3 Week Look Ahead",
+    icon: ReceiptIcon,
+    component: DashboardPage,
+    layout: "/admin"
+  },
+  {
+    path: "/planner",
+    name: "My Planner",
+    icon: AccessAlarmIcon,
+    component: DashboardPage,
+    layout: "/admin"
+  },
+  {
+    path: "/team",
+    name: "Team",
+    icon: PeopleOutlineIcon,
     component: DashboardPage,
     layout: "/admin"
   },

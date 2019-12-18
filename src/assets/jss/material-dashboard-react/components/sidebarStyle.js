@@ -149,11 +149,16 @@ const sidebarStyle = theme => ({
     borderWidth: 2,
     position: "relative",
     display: "block",
-    textDecoration: "none",
-    "&:hover,&:focus,&:visited,&": {
-      boxShadow: "0px 2px 10px -1px rgba(0,0,0,0.2), 0px 10px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
-    }
+    textDecoration: "none"
   },
+  activeBorder: {
+    backgroundColor: '#ffffff',
+    boxShadow: "0px 2px 10px -1px rgba(0,0,0,0.2), 0px 10px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
+  },
+  activeColor: {
+    color: "#fa8f35!important"
+  },
+
   itemLink: {
     width: "auto",
     transition: "all 300ms linear",
@@ -161,8 +166,12 @@ const sidebarStyle = theme => ({
     position: "relative",
     display: "block",
     padding: "10px 15px",
+    color: "#a5a4bf",
     backgroundColor: "transparent",
-    ...defaultFont
+    ...defaultFont,
+    "&:hover,&:focus": {
+      color: "#fa8f35!important",
+    }
   },
   itemIcon: {
     width: "24px",
@@ -173,11 +182,7 @@ const sidebarStyle = theme => ({
     marginRight: "15px",
     textAlign: "center",
     verticalAlign: "middle",
-    color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)",
-    "&:hover,&:focus,&:visited,&": {
-      color: "#fa8f35",
-      backgroundColor: whiteColor
-    }
+    color: "inherit",
   },
   itemIconRTL: {
     marginRight: "3px",
