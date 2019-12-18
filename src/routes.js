@@ -17,7 +17,7 @@
 */
 // @material-ui/icons
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import BarChartIcon from '@material-ui/icons/BarChart';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
@@ -28,7 +28,7 @@ const dashboardRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: BarChartIcon,
+    icon: EqualizerIcon,
     component: DashboardPage,
     layout: "/admin"
   },

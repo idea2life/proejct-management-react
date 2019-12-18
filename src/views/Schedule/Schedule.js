@@ -5,10 +5,11 @@ import GridContainer from "components/Grid/GridContainer.js";
 import Table from "components/Table/Table.js";
 import CustomButtons from "components/CustomButtons/Button.js";
 import CustomTimelineChart from "components/Schedule/CustomTimelineChart";
+import RightComponent from "components/Schedule/RightComponent";
 import styles from "assets/jss/material-dashboard-react/views/scheduleStyles.js";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
-import CenterFocusWeakIcon from '@material-ui/icons/CenterFocusWeak';
+import CropFreeIcon from '@material-ui/icons/CropFree';
 import ZoomOutIcon from '@material-ui/icons/ZoomOut';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
@@ -26,15 +27,15 @@ export default class Schedule extends React.Component {
   }
 
   create = () => {
-    this.setState({ showFlag: 1 });
+    this.setState({ showFlag: 2 });
   }
   showCpm = () => {
-    this.setState({ showFlag: 2 });
+    this.setState({ showFlag: 1 });
   }
   
   render() {
     const icons = [
-      { icon: CenterFocusWeakIcon },
+      { icon: CropFreeIcon },
       { icon: ZoomOutIcon },
       { icon: ZoomInIcon },
       { icon: SaveOutlinedIcon },
@@ -112,7 +113,7 @@ export default class Schedule extends React.Component {
     return (
       <div style={{height: '100%'}}>
         <GridContainer style={{height: '100%'}}>
-          <GridItem xs={12} sm={12} md={7}>
+          <GridItem xs={12} sm={12} lg={7}>
             <Table
               tableHeaderColor="default"
               tableHead={["TYPE", "ID", "SUBJECT", "STATUS", "ASSIGNEE"]}
@@ -138,68 +139,72 @@ export default class Schedule extends React.Component {
               <p style={styles.txt}>(1-1/1)</p>
             </div>
           </GridItem>
-          <GridItem xs={12} sm={12} md={5}>
-              <div style={styles.topButtonWrapper}>
-                <CustomButtons style={{...styles.btn, ...styles.createBtn}} onClick={() => {this.create();}}>
-                  + Create
-                  <ExpandMoreIcon style={{margin: 0}} />
-                </CustomButtons>
-                <CustomButtons style={{...styles.btn, ...styles.createBtn}} onClick={() => {this.showCpm();}}>
-                  Show CPM
-                </CustomButtons>
-                <CustomButtons style={styles.btn}>
-                  <LocalBarIcon style={{color: '#fa8f35', width: 12, height: 12}} />
-                  <span style={{padding: '0 3px'}}>Filter</span>
-                  <span style={styles.circle}>1</span>
-                </CustomButtons>
-                <CustomButtons style={styles.btn}>
-                  <span style={styles.circle}>i</span>
-                </CustomButtons>
-                {
-                  icons.map((item, key) => {
-                    return (
-                      <CustomButtons style={styles.btn} key={key}>
-                        <item.icon style={styles.btnIcon}/>
-                      </CustomButtons>
-                    )
-                  })
-                }
-              </div>
+          <GridItem xs={12} sm={12} lg={5}>
+            <div style={styles.topButtonWrapper}>
+              <CustomButtons style={{...styles.btn, ...styles.createBtn}} onClick={() => {this.create();}}>
+                + Create
+                <ExpandMoreIcon style={{margin: 0}} />
+              </CustomButtons>
+              <CustomButtons style={{...styles.btn, ...styles.createBtn}} onClick={() => {this.showCpm();}}>
+                Show CPM
+              </CustomButtons>
+              <CustomButtons style={styles.btn}>
+                <LocalBarIcon style={{color: '#fa8f35', width: 12, height: 12}} />
+                <span style={{padding: '0 3px'}}>Filter</span>
+                <span style={styles.circle}>1</span>
+              </CustomButtons>
+              <CustomButtons style={styles.btn}>
+                <span style={styles.circle}>i</span>
+              </CustomButtons>
               {
-                showFlag === 0 &&
-                  <div style={{marginTop: '-30px'}}>
-                    <Table
-                      tableHeaderColor="default"
-                      tableHead={["START DATE", "END DATE"]}
-                      tableData={[
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""],
-                        ["", ""]
-                      ]}
-                    />
-                  </div>
+                icons.map((item, key) => {
+                  return (
+                    <CustomButtons style={styles.btn} key={key}>
+                      <item.icon style={styles.btnIcon}/>
+                    </CustomButtons>
+                  )
+                })
               }
-              {
-                showFlag === 1 &&
-                  <CustomTimelineChart
-                    groups={groups}
-                    items={items}
-                    sidebarWidth={0}
-                    itemHeightRatio={0.17}
-                    defaultTimeStart={moment(new Date(2019, 7, 29))}
-                    defaultTimeEnd={moment(new Date(2019, 8, 10))}
+            </div>
+            {
+              showFlag === 0 &&
+                <div style={{marginTop: '-30px'}}>
+                  <Table
+                    tableHeaderColor="default"
+                    tableHead={["START DATE", "END DATE"]}
+                    tableData={[
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""],
+                      ["", ""]
+                    ]}
                   />
-              }
+                </div>
+            }
+            {
+              showFlag === 1 &&
+                <CustomTimelineChart
+                  groups={groups}
+                  items={items}
+                  sidebarWidth={0}
+                  itemHeightRatio={0.17}
+                  defaultTimeStart={moment(new Date(2019, 7, 29))}
+                  defaultTimeEnd={moment(new Date(2019, 8, 10))}
+                />
+            }
+            {
+              showFlag === 2 &&
+                <RightComponent />
+            }
           </GridItem>
         </GridContainer>
       </div>
