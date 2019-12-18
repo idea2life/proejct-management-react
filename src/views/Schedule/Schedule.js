@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -103,6 +102,7 @@ export default class Schedule extends React.Component {
         end_time: moment(new Date(2019, 8, 10)),
       },
     ]
+    console.log(styles);
     return (
       <div style={{height: '100%'}}>
         <GridContainer style={{height: '100%'}}>
@@ -127,32 +127,32 @@ export default class Schedule extends React.Component {
               ]}
             />
             <div>
-              <CustomButtons className={styles.newBtn}>+ Create new work</CustomButtons>
-              <p className={styles.txt}>(1-1/1)</p>
+              <CustomButtons style={styles.newBtn}>+ Create new work</CustomButtons>
+              <p style={styles.txt}>(1-1/1)</p>
             </div>
           </GridItem>
           <GridItem xs={12} sm={12} md={5}>
-              <div className={styles.topButtonWrapper}>
-                <CustomButtons className={classNames([styles.btn, styles.createBtn])}>
+              <div style={styles.topButtonWrapper}>
+                <CustomButtons style={{...styles.btn, ...styles.createBtn}}>
                   + Create
                   <ExpandMoreIcon style={{margin: 0}} />
                 </CustomButtons>
-                <CustomButtons className={classNames([styles.btn, styles.createBtn])}>
+                <CustomButtons style={{...styles.btn, ...styles.createBtn}}>
                   Show CPM
                 </CustomButtons>
-                <CustomButtons className={styles.btn}>
+                <CustomButtons style={styles.btn}>
                   <LocalBarIcon style={{color: '#fa8f35', width: 12, height: 12}} />
                   <span style={{padding: '0 3px'}}>Filter</span>
-                  <span className={styles.circle}>1</span>
+                  <span style={styles.circle}>1</span>
                 </CustomButtons>
-                <CustomButtons className={styles.btn}>
-                  <span className={styles.circle}>i</span>
+                <CustomButtons style={styles.btn}>
+                  <span style={styles.circle}>i</span>
                 </CustomButtons>
                 {
                   icons.map((item, key) => {
                     return (
-                      <CustomButtons className={styles.btn} key={key}>
-                        <item.icon className={styles.btnIcon}/>
+                      <CustomButtons style={styles.btn} key={key}>
+                        <item.icon style={styles.btnIcon}/>
                       </CustomButtons>
                     )
                   })

@@ -1,4 +1,4 @@
-const dashboardStyles = {
+const scheduleStyles = {
   newBtn: {
     backgroundColor: 'transparent!important',
     fontSize: "12px",
@@ -33,15 +33,15 @@ const dashboardStyles = {
     borderRadius: '2px',
     height: 22,
     marginLeft: 5,
-    backgroundColor: '#ffffff!important',
+    backgroundColor: '#ffffff',
     border: '1px solid #707070',
-    color: '#707070!important',
+    color: '#707070',
     textTransform: 'none',
   },
   createBtn: {
-    backgroundColor: '#fa8f35!important',
+    backgroundColor: '#fa8f35',
     marginRight: 5,
-    color: '#ffffff!important',
+    color: '#ffffff',
     border: 'none'
   },
   circle: {
@@ -55,9 +55,9 @@ const dashboardStyles = {
     fontSize: 7
   },
   btnIcon: {
-    width: "15px!important",
-    height: "15px!important",
-    margin: "0!important"
+    width: "15px",
+    height: "15px",
+    margin: "0"
   },
   phase: {
     background: "#0101fd!important",
@@ -86,4 +86,4 @@ const dashboardStyles = {
   },
 };
 
-export default dashboardStyles;
+export default scheduleStyles;
