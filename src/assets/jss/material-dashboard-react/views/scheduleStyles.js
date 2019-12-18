@@ -1,6 +1,6 @@
 const scheduleStyles = {
   newBtn: {
-    backgroundColor: 'transparent!important',
+    backgroundColor: 'transparent',
     fontSize: "12px",
     lineHeight: "21px",
     color: "#1d5f92",
