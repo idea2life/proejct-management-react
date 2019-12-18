@@ -61,7 +61,7 @@ const tableStyle = theme => ({
   },
   tableResponsive: {
     width: "100%",
-    marginTop: 81,
+    marginTop: 51,
     overflowX: "auto"
   },
   tableHeadRow: {

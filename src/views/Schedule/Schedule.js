@@ -21,9 +21,15 @@ export default class Schedule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        userName: '',
-        password: ''
+      showFlag: 0
     }
+  }
+
+  create = () => {
+    this.setState({ showFlag: 1 });
+  }
+  showCpm = () => {
+    this.setState({ showFlag: 2 });
   }
   
   render() {
@@ -102,7 +108,7 @@ export default class Schedule extends React.Component {
         end_time: moment(new Date(2019, 8, 10)),
       },
     ]
-    console.log(styles);
+    const { showFlag } = this.state;
     return (
       <div style={{height: '100%'}}>
         <GridContainer style={{height: '100%'}}>
@@ -125,6 +131,7 @@ export default class Schedule extends React.Component {
                 ["TASK", "53", "Pour Foundation", "Not Started", "Carpenters"],
                 ["TASK", "54", "Strip Forms", "Not Started", "Carpenters"],
               ]}
+              colorBackground
             />
             <div>
               <CustomButtons style={styles.newBtn}>+ Create new work</CustomButtons>
@@ -133,11 +140,11 @@ export default class Schedule extends React.Component {
           </GridItem>
           <GridItem xs={12} sm={12} md={5}>
               <div style={styles.topButtonWrapper}>
-                <CustomButtons style={{...styles.btn, ...styles.createBtn}}>
+                <CustomButtons style={{...styles.btn, ...styles.createBtn}} onClick={() => {this.create();}}>
                   + Create
                   <ExpandMoreIcon style={{margin: 0}} />
                 </CustomButtons>
-                <CustomButtons style={{...styles.btn, ...styles.createBtn}}>
+                <CustomButtons style={{...styles.btn, ...styles.createBtn}} onClick={() => {this.showCpm();}}>
                   Show CPM
                 </CustomButtons>
                 <CustomButtons style={styles.btn}>
@@ -158,14 +165,41 @@ export default class Schedule extends React.Component {
                   })
                 }
               </div>
-              <CustomTimelineChart
-                groups={groups}
-                items={items}
-                sidebarWidth={0}
-                itemHeightRatio={0.17}
-                defaultTimeStart={moment(new Date(2019, 7, 29))}
-                defaultTimeEnd={moment(new Date(2019, 8, 10))}
-              />
+              {
+                showFlag === 0 &&
+                  <div style={{marginTop: '-30px'}}>
+                    <Table
+                      tableHeaderColor="default"
+                      tableHead={["START DATE", "END DATE"]}
+                      tableData={[
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""],
+                        ["", ""]
+                      ]}
+                    />
+                  </div>
+              }
+              {
+                showFlag === 1 &&
+                  <CustomTimelineChart
+                    groups={groups}
+                    items={items}
+                    sidebarWidth={0}
+                    itemHeightRatio={0.17}
+                    defaultTimeStart={moment(new Date(2019, 7, 29))}
+                    defaultTimeEnd={moment(new Date(2019, 8, 10))}
+                  />
+              }
           </GridItem>
         </GridContainer>
       </div>

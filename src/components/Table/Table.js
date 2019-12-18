@@ -44,7 +44,7 @@ export default function CustomTable(props) {
               <TableRow key={key} className={classes.tableBodyRow}>
                 {row.map((prop, key) => {
                   const color = prop === "TASK" ? "#01fd2b" : prop === "AREA" ? "#fdcc01" : prop === "LEVEL" ? "#fd2301" : prop === "PHASE" ? "#0101fd" : "#333333";
-                  const background = key < 2 ? "#cce6f7" : "transparent";
+                  const background = key < 2 && props.colorBackground ? "#cce6f7" : "transparent";
                   let suf = "";
                   if (key === 2) {
                     suf = row[0] === "TASK" ? <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : row[0] === "AREA" ? <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> : row[0] === "LEVEL" ? <span>&nbsp;&nbsp;</span> : "";

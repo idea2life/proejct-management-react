@@ -77,9 +77,14 @@ const scheduleStyles = {
     borderRadius: "5px!important",
     height: '11px!important',
   },
+  chartHeaderWrapper: {
+    height: '15px!important',
+    background: '#f0f0f0'
+  },
   chartHeader: {
     color: '#707070!important',
     fontSize: '8px!important',
+    height: "15px!important"
   },
   chartFirstHeader: {
     justifyContent: 'space-around!important',

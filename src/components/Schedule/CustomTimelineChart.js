@@ -79,26 +79,28 @@ export default function CustomTimelineChart(props) {
     >
       <TimelineHeaders>
         <DateHeader unit="primaryHeader"
-        style={{ background: '#f0f0f0' }}
-        intervalRenderer={({ getIntervalProps, intervalContext }) => {
-            return <div
-              {...getIntervalProps()}
-              className={classNames(["rct-dateHeader rct-dateHeader-primary", classes.chartHeader, classes.chartFirstHeader])}
-                >
-                <div>{intervalContext.intervalText}</div>
-                <div>{intervalContext.intervalText}</div>
-            </div>
-          }}
+          className={classes.chartHeaderWrapper}
+          intervalRenderer={({ getIntervalProps, intervalContext }) => {
+              return <div
+                {...getIntervalProps()}
+                className={classNames(["rct-dateHeader rct-dateHeader-primary", classes.chartHeader, classes.chartFirstHeader])}
+                  >
+                  <div>{intervalContext.intervalText}</div>
+                  <div>{intervalContext.intervalText}</div>
+              </div>
+            }}
         />
         <DateHeader
           unit="day"
           labelFormat="D"
+          className={classes.chartHeaderWrapper}
           intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
             return <div {...getIntervalProps()}
               className={classNames(["rct-dateHeader", classes.chartHeader])}
               style={{
                 ...getIntervalProps().style,
                 marginLeft: '-1px',
+                height: 15,
                 borderLeft: intervalContext.intervalText === '1' ? '2px solid #bbb' : 'none' }}
               >
               {intervalContext.intervalText}
