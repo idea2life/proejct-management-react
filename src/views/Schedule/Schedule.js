@@ -6,6 +6,7 @@ import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Table from "components/Table/Table.js";
 import CustomButtons from "components/CustomButtons/Button.js";
+import CustomTimelineChart from "components/Schedule/CustomTimelineChart";
 import styles from "assets/jss/material-dashboard-react/views/scheduleStyles.js";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
@@ -16,11 +17,7 @@ import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
 import SaveOutlinedIcon from '@material-ui/icons/SaveOutlined';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 
-import Timeline, { TimelineHeaders, DateHeader } from "react-calendar-timeline";
-import 'react-calendar-timeline/lib/Timeline.css'
-import './index.css'
 import moment from 'moment'
-
 const useStyles = makeStyles(styles);
 
 export default function Schedule() {
@@ -156,101 +153,14 @@ export default function Schedule() {
                 })
               }
             </div>
-            <Timeline
-              className="timelineChart"
+            <CustomTimelineChart
               groups={groups}
               items={items}
               sidebarWidth={0}
               itemHeightRatio={0.17}
               defaultTimeStart={moment(new Date(2019, 7, 29))}
               defaultTimeEnd={moment(new Date(2019, 8, 10))}
-              itemRenderer = {({
-                item,
-                itemContext,
-                getItemProps,
-                getResizeProps,
-              }) => {
-                const { left: leftResizeProps, right: rightResizeProps } = getResizeProps()
-                const index = items.findIndex(element => element.id === item.id);
-                const nextItem = items[index + 1];
-                const delta = parseFloat(itemContext.width) / (item.end_time - item.start_time);
-                const deltaWidth = nextItem ? delta * (nextItem.start_time - item.end_time) : 0;
-                return (
-                  <div
-                    {...getItemProps(item.itemProps)}
-                    className={classNames([getItemProps(item.itemProps).className, classes[item.type]])}
-                  >
-                  {
-                    item.type === 'task' && nextItem && nextItem.start_time &&
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: (parseFloat(itemContext.width) - 5),
-                        top: 5,
-                        backgroundColor: '#707070',
-                        height: 30,
-                        width: 3
-                      }}
-                    />
-                  }
-                  {
-                    item.type === 'task' && nextItem && nextItem.type === 'task' && nextItem.start_time && new Date(nextItem.start_time) > new Date(item.end_time) &&
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: (parseFloat(itemContext.width) - 5),
-                        top: 35,
-                        backgroundColor: '#707070',
-                        height: 3,
-                        width: deltaWidth + 5
-                      }}
-                    />
-                  }
-                    {itemContext.useResizeHandle ? <div {...leftResizeProps} /> : ''}
-                    <div
-                      className="rct-item-content"
-                      style={{ maxHeight: `${itemContext.dimensions.height}` }}
-                    >
-                      {itemContext.title}
-                    </div>
-              
-                    {itemContext.useResizeHandle ? <div {...rightResizeProps} /> : ''}
-                  </div>
-                )}
-              
-              }
-            >
-              <TimelineHeaders>
-                <DateHeader unit="primaryHeader"
-                style={{ background: '#f0f0f0' }}
-                intervalRenderer={({ getIntervalProps, intervalContext }) => {
-                    return <div
-                      {...getIntervalProps()}
-                      className={classNames(["rct-dateHeader rct-dateHeader-primary", classes.chartHeader, classes.chartFirstHeader])}
-                        >
-                        <div>{intervalContext.intervalText}</div>
-                        <div>{intervalContext.intervalText}</div>
-                    </div>
-                  }}
-                />
-                <DateHeader
-                  unit="day"
-                  labelFormat="D"
-                  intervalRenderer={({ getIntervalProps, intervalContext, data }) => {
-                    return <div {...getIntervalProps()}
-                      className={classNames(["rct-dateHeader", classes.chartHeader])}
-                      style={{
-                        ...getIntervalProps().style,
-                        marginLeft: '-1px',
-                        borderLeft: intervalContext.intervalText === '1' ? '2px solid #bbb' : 'none' }}
-                      >
-                      {intervalContext.intervalText}
-
-                    </div>
-                  }}
-                />
-              </TimelineHeaders>
-            </Timeline>
+            />
         </GridItem>
       </GridContainer>
     </div>
