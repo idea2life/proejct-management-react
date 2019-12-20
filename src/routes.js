@@ -23,6 +23,8 @@ import ReceiptIcon from '@material-ui/icons/Receipt';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import Schedule from "views/Schedule/Schedule.js";
+import WeekLookAhead from "views/WeekLookAhead/WeekLookAhead.js";
+import MyPlanner from "views/MyPlanner/MyPlanner.js";
 
 const dashboardRoutes = [
   {
@@ -43,14 +45,14 @@ const dashboardRoutes = [
     path: "/lookahead",
     name: "3 Week Look Ahead",
     icon: ReceiptIcon,
-    component: DashboardPage,
+    component: WeekLookAhead,
     layout: "/admin"
   },
   {
     path: "/planner",
     name: "My Planner",
     icon: AccessAlarmIcon,
-    component: DashboardPage,
+    component: MyPlanner,
     layout: "/admin"
   },
   {
